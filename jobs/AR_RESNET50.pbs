@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#PBS -N resnet50_a_male
+
+#PBS -q gpu-n1h72
+
+#PBS -l nodes=tule-01.cnca:ppn=1
+
+#PBS -l walltime=72:00:00
+
+module load opencv/2.4.13.3
+
+module load cuda/8.0.61
+
+module load cudnn-8/6.0.21
+
+module load intelpython/3.5
+
+cd $PBS_O_WORKDIR
+
+python ../src_r/run.py ../params/A_MALE_DNLM_RESNET50.json
+python ../src_r/run.py ../params/A_MALE_REGISTERED_RESNET50.json
